@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400;1,600&family=MedievalSharp&display=swap');
+
+:root {
+  --font-cinzel: 'Cinzel', serif;
+  --font-medieval: 'MedievalSharp', serif;
+  --font-crimson: 'Crimson Text', serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #f0ead8;
+  color: #1c1814;
+  font-family: var(--font-crimson);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: #e0d8c4; }
+::-webkit-scrollbar-thumb { background: #b0a493; border-radius: 3px; }
+
+/* Screen transition */
+.screen-enter {
+  animation: screenEnter 0.45s ease-out forwards;
+}
+@keyframes screenEnter {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Option button — selected */
+.option-selected {
+  border-color: #1c1814 !important;
+  background-color: #1c1814 !important;
+  color: #f0ead8 !important;
+}
+
+/* Inputs */
+textarea.parchment-input,
+input.parchment-input {
+  background-color: #f8f4ec;
+  border: 1px solid #c4b99e;
+  color: #1c1814;
+  font-family: var(--font-crimson);
+  font-size: 1.05rem;
+  line-height: 1.65;
+  transition: border-color 0.2s ease;
+  outline: none;
+  resize: none;
+  width: 100%;
+}
+textarea.parchment-input:focus,
+input.parchment-input:focus {
+  border-color: #1c1814;
+}
+textarea.parchment-input::placeholder,
+input.parchment-input::placeholder {
+  color: #a09080;
+  font-style: italic;
+}
+
+/* Print styles */
+@media print {
+  .no-print { display: none !important; }
+  body { background: white; }
+  .print-page {
+    width: 100%;
+    min-height: 100vh;
+  }
+}
